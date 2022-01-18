@@ -1,0 +1,13 @@
+{% extends "base/base.html" %}
+{% block content %}
+  <h1> Hello world !!  </h1>
+  <ul>
+      {% for lead in leads %}
+         <li> <a href="{% url 'leads:lead_detail' %}">{{lead.first_name}}, {{lead.last_name}}, {{lead.age}}</a>
+             <br/>
+            <a href="{% url 'leads:lead_update' lead.id %}">Update</a>
+            <a href="{% url 'leads:lead_delete' lead.id %}">Delete</a>
+         </li>
+      {% endfor %}
+  </ul>
+{% endblock content %}
